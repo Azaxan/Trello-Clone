@@ -1,0 +1,49 @@
+{
+  "boards": [
+    {
+      "id": 1,
+      "title": "Board 1"
+    },
+    {
+      "id": 2,
+      "title": "Board 2"
+    }
+  ],
+  "columns": [
+    {
+      "id": 1,
+      "title": "Todo",
+      "boardId": 1
+    },
+    {
+      "id": 2,
+      "title": "In Progress",
+      "boardId": 1
+    },
+    {
+      "id": 2,
+      "title": "Done",
+      "boardId": 1
+    }
+  ],
+  "cards": [
+    {
+      "title": "card 1",
+      "columnId": 1,
+      "boardId": 1,
+      "order": 1
+    },
+    {
+      "title": "card 2",
+      "columnId": 2,
+      "boardId": 1,
+      "order": 1
+    },
+    {
+      "title": "card 3",
+      "columnId": 3,
+      "boardId": 1,
+      "order": 1
+    }
+  ]
+}
