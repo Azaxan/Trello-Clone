@@ -21,29 +21,75 @@
       "boardId": 1
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Done",
       "boardId": 1
+    },
+    {
+      "id": 4,
+      "title": "Todo Board 2",
+      "boardId": 2
+    },
+    {
+      "id": 5,
+      "title": "In Progress Board 2",
+      "boardId": 2
+    },
+    {
+      "id": 6,
+      "title": "Done Board 2",
+      "boardId": 2
     }
   ],
   "cards": [
     {
-      "title": "card 1",
+      "id": 1,
+      "title": "Task 11",
       "columnId": 1,
       "boardId": 1,
       "order": 1
     },
     {
-      "title": "card 2",
+      "id": 2,
+      "title": "Task 22",
       "columnId": 2,
       "boardId": 1,
       "order": 1
     },
     {
-      "title": "card 3",
+      "id":3,
+      "title": "Task 33",
       "columnId": 3,
       "boardId": 1,
       "order": 1
+    },
+    {
+      "id": 4,
+      "title": "Task 1",
+      "columnId": 5,
+      "boardId": 2,
+      "order": 1
+    },
+    {
+      "id": 5,
+      "title": "Task 2",
+      "columnId": 4,
+      "boardId": 2,
+      "order": 1
+    },
+    {
+      "id":6,
+      "title": "Task 0",
+      "columnId": 6,
+      "boardId": 2,
+      "order": 1
+    },
+    {
+      "id":7,
+      "title": "Task 3",
+      "columnId": 4,
+      "boardId": 2,
+      "order": 2
     }
   ]
 }

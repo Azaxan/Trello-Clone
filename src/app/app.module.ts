@@ -13,11 +13,19 @@ import { CardListComponent } from './card-list/card-list.component';
 import { MoveDialogComponent } from './move-dialog/move-dialog.component';
 
 import { MaterialModule } from './material.module';
+
 import { CardService } from './services/card.service';
 import { BoardService } from './services/board.service';
+import { ColumnService } from './services/column.service';
 import { BoardDataService } from './data-services/board-data.service';
+import { CardDataService } from './data-services/card-data.service';
+import { ColumnDataService } from './data-services/column-data.service';
+
 import { AppRoutingModule } from './/app-routing.module';
 
+// PIPES
+import { OrderBy } from './pipes/orderby.pipe';
+import { Where } from './pipes/where.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,9 @@ import { AppRoutingModule } from './/app-routing.module';
     NewBoardDialogComponent,
     BoardComponent,
     CardListComponent,
-    MoveDialogComponent
+    MoveDialogComponent,
+    Where,
+    OrderBy
   ],
   imports: [
     BrowserModule,
@@ -39,7 +49,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AppRoutingModule
   ],
   entryComponents: [BoardDialogComponent, NewBoardDialogComponent],
-  providers: [BoardService, CardService, BoardDataService ],
+  providers: [BoardService, CardService, BoardDataService, CardDataService, ColumnService, ColumnDataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

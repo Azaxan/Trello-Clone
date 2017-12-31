@@ -1,4 +1,5 @@
 export class Card {
+    id: number;
     title: string = '';
     boardId: number;
     columnId: number;

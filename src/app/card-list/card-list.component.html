@@ -1,3 +1,15 @@
-<p>
-  card-list works!
-</p>
+<div class="row">
+    <div class="col-sm" *ngFor="let column of columns">
+      <div class="card border-primary mb-3" style="max-width: 20rem;"> 
+        <div class="card-header">{{column.title}}</div>
+        <div class="card-body text-primary">
+            <div class="list-group">
+                <button class="btn btn-primary btn-md list-margin" *ngFor="let card of cards | where : { columnId: column.id }">{{card.title}}</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <input placeholder="Add a list ...">
+    </div>
+  </div>

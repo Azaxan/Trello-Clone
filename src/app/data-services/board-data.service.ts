@@ -7,7 +7,6 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class BoardDataService {
 
-  // boards: Board[] = [];
   boards$ = new Subject<Board[]>();
 
   constructor(private api: BoardService) { }
