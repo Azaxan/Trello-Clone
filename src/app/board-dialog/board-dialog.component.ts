@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Router } from '@angular/router';
 import { BoardDataService } from '../data-services/board-data.service';
 import { Observable } from 'rxjs/Observable';
 import { Board } from '../models/board';
@@ -12,10 +13,14 @@ import { Board } from '../models/board';
 })
 export class BoardDialogComponent implements OnInit {
 
-constructor( public dialogRef: MatDialogRef<BoardDialogComponent>,
+constructor(private router: Router, public dialogRef: MatDialogRef<BoardDialogComponent>,
   @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit() {
   }
-
+  
+  goToBoard(id: number)
+  {
+    this.router.navigate(['/boards', id]);
+  }
 }

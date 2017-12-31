@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { BoardDialogComponent } from '../board-dialog/board-dialog.component';
-import {NewBoardDialogComponent} from '../new-board-dialog/new-board-dialog.component';
+import { NewBoardDialogComponent } from '../new-board-dialog/new-board-dialog.component';
 import { BoardDataService } from '../data-services/board-data.service';
 import { Observable } from 'rxjs/Observable';
 import { Board } from '../models/board';

@@ -16,6 +16,7 @@ import { MaterialModule } from './material.module';
 import { CardService } from './services/card.service';
 import { BoardService } from './services/board.service';
 import { BoardDataService } from './data-services/board-data.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { BoardDataService } from './data-services/board-data.service';
     HttpModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   entryComponents: [BoardDialogComponent, NewBoardDialogComponent],
   providers: [BoardService, CardService, BoardDataService ],
