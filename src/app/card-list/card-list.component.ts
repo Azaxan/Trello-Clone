@@ -5,6 +5,8 @@ import { ColumnDataService } from '../data-services/column-data.service';
 import { Column } from '../models/column';
 import { Board } from '../models/board';
 import  {Where } from '../pipes/where.pipe';
+import { fadeInContent } from '@angular/material';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-card-list',
@@ -17,6 +19,8 @@ export class CardListComponent implements OnInit {
 
   cards: Card[] = [];
   columns: Column[] = [];
+  newCards: Card[] = [];
+  isAddCard: Boolean = false;
 
   constructor(private cardDataService: CardDataService,
               private columnDataService: ColumnDataService) { }
@@ -32,6 +36,7 @@ export class CardListComponent implements OnInit {
     .subscribe(
       (columns) => {
         this.columns = columns.filter(x => x.boardId == this.currentBoard.id);
+        this.initiateNewCards();
       }
     )
   }
@@ -44,6 +49,35 @@ export class CardListComponent implements OnInit {
         this.cards = cards.filter(x => x.boardId == this.currentBoard.id);
       }
     )
+  }
+
+  addCard(card){
+    
+    this.cardDataService
+      .addCard(card)
+      .subscribe(
+        (newCard) => {
+          newCard.id = this.cards.length + 1;
+          this.cards = this.cards.concat(newCard);
+          this.initiateNewCards();
+          this.isAddCard = false;
+        }
+      )
+  }
+
+  showTextArea(columnId:number)
+  {
+
+  }
+  initiateNewCards()
+  {
+    this.columns.forEach(x => {
+      let newCard = new Card();
+      newCard.boardId = x.boardId;
+      newCard.columnId = x.id;
+      newCard.title = '';
+      this.newCards.push(newCard);
+    })
   }
 
 }

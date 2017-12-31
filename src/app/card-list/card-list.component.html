@@ -1,11 +1,27 @@
 <div class="row">
-    <div class="col-sm" *ngFor="let column of columns">
+    <div class="col-sm" *ngFor="let column of columns;  let i = index">
       <div class="card border-primary mb-3" style="max-width: 20rem;"> 
         <div class="card-header">{{column.title}}</div>
         <div class="card-body text-primary">
-            <div class="list-group">
-                <button class="btn btn-primary btn-md list-margin" *ngFor="let card of cards | where : { columnId: column.id }">{{card.title}}</button>
-              </div>
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center list-margin" *ngFor="let card of cards | where : { columnId: column.id }">
+                    {{card.title}}
+                    <!-- <span class="badge badge-primary badge-pill">Edit</span> -->
+                    <!-- <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span> Pencil 
+                    </button> -->
+                    <span class="glyphicon glyphicon-pencil">Edit</span>
+                </li>
+              </ul>
+              <button *ngIf="!isAddCard" (click) = "isAddCard = true" type="button" class="btn btn-link">Add Card ...</button>
+           
+              <span *ngIf="isAddCard">
+              <textarea name="{{column.id}}" [(ngModel)] = "newCards[i].title" class="form-control txt-area-margin" *ngIf="isAddCard"></textarea>
+              
+                <button class="btn btn-primary btn-sm" (click) = "addCard(newCards[i])" >Add</button>
+                <button class="btn btn-link btn-sm" (click) = "isAddCard = false">X</button>
+              </span>
+            
           </div>
       </div>
     </div>
