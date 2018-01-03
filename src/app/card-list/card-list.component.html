@@ -13,13 +13,13 @@
                     <span class="glyphicon glyphicon-pencil">Edit</span>
                 </li>
               </ul>
-              <button *ngIf="!isAddCard" (click) = "isAddCard = true" type="button" class="btn btn-link">Add Card ...</button>
+              <button *ngIf="!showAdd[i]" (click) = "onAddingCard(i)" type="button" class="btn btn-link">Add Card...</button>
            
-              <span *ngIf="isAddCard">
-              <textarea name="{{column.id}}" [(ngModel)] = "newCards[i].title" class="form-control txt-area-margin" *ngIf="isAddCard"></textarea>
+              <span *ngIf="showAdd[i]">
+              <textarea name="{{column.id}}" [(ngModel)] = "newCards[i].title" class="form-control txt-area-margin"></textarea>
               
-                <button class="btn btn-primary btn-sm" (click) = "addCard(newCards[i])" >Add</button>
-                <button class="btn btn-link btn-sm" (click) = "isAddCard = false">X</button>
+                <button class="btn btn-primary btn-sm" (click) = "addCard(newCards[i], i)" >Add</button>
+                <button class="btn btn-link btn-sm" (click) = "onAddingCard(i)">X</button>
               </span>
             
           </div>

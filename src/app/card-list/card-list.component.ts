@@ -7,6 +7,7 @@ import { Board } from '../models/board';
 import  {Where } from '../pipes/where.pipe';
 import { fadeInContent } from '@angular/material';
 import { forEach } from '@angular/router/src/utils/collection';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-card-list',
@@ -20,7 +21,7 @@ export class CardListComponent implements OnInit {
   cards: Card[] = [];
   columns: Column[] = [];
   newCards: Card[] = [];
-  isAddCard: Boolean = false;
+  showAdd: Boolean[] = [];
 
   constructor(private cardDataService: CardDataService,
               private columnDataService: ColumnDataService) { }
@@ -51,8 +52,8 @@ export class CardListComponent implements OnInit {
     )
   }
 
-  addCard(card){
-    
+  addCard(card, index:number){
+    debugger;
     this.cardDataService
       .addCard(card)
       .subscribe(
@@ -60,15 +61,18 @@ export class CardListComponent implements OnInit {
           newCard.id = this.cards.length + 1;
           this.cards = this.cards.concat(newCard);
           this.initiateNewCards();
-          this.isAddCard = false;
         }
       )
+
+      this.onAddingCard(index);
   }
 
-  showTextArea(columnId:number)
+  onAddingCard(index:number)
   {
-
+    this.showAdd[index] = !this.showAdd[index];
+    this.newCards[index].title = '';
   }
+
   initiateNewCards()
   {
     this.columns.forEach(x => {
